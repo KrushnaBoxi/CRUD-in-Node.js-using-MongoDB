@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CRUD</title>
+        <link href="/stylesheets/style.css" rel="stylesheet">
+        <script type="text/javascript" src="/javascripts/OnClickCalls.js"></script>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+ <!--
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ -->
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="page-header"><h2><%=page_title%></h2></div>
+            <div class="page-container">
+
+<div class="page-data">
+    <div class="data-btn">
+        <button onClick="addUser();">+ Add</button>
+    </div>
+    <div class="data-table">
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>E-Mail</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+            <% if(data.length) {
+                data.forEach(function(detail){ %>
+                    <tr>
+                        <td><%= detail._id %></td>
+                        <td><%= detail.name %></td>
+                        <td><%= detail.address %></td>
+                        <td><%= detail.email %></td>
+                        <td><%= detail.phone %></td>
+                        <td>
+                            <a class="a-inside delete" href="/customer/userlist">All User</a>
+                            <a class="a-inside edit" href="/customer/edit/<%= detail._id %>" >Edit</a>
+                            <a class="a-inside delete" href="/customer/delete/<%= detail._id %>" >Delete</a>
+                        </td>
+                    </tr>
+
+
+
+
+            <%    })
+            }else{ %>
+
+            <tr>
+                <td colspan="5">NO DATA TO SHOW</td>
+            </tr>
+
+            <%
+            }  %>
+        </table>
+    </div>
+</div>      </div>
+            <div id="footer">
+                
+            </div>
+        </div>
+    </body>
+</html>
